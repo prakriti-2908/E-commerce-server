@@ -101,8 +101,8 @@ const loginController = async (req, res) => {
       // Set the JWT in the response cookie
       res.cookie("JWT", jwtToken, {
         maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
-        sameSite: "lax", // Adjust for local testing
-        secure: false, // Set to false for local testing
+        sameSite: "None", // Adjust for local testing
+        secure: true, // Set to false for local testing
         path: "/",
         httpOnly: false, // Make the cookie HTTP only
       });
