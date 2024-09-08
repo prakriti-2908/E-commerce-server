@@ -34,7 +34,6 @@ const app = express();
 //   res.header('Access-Control-Allow-Credentials', 'true');
 //   next();
 // });
-app.set('trust proxy', 1); 
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(
@@ -52,14 +51,15 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      // secure: true,
-      // httpOnly: false,
-      // sameSite: "none",
+      secure: true, // Required to ensure cookies are sent only over HTTPS
+      httpOnly: true, // Ensure cookies are not accessible via JavaScript
+      sameSite: "none", // Required for cross-origin cookies
       maxAge: 1000 * 60 * 60 * 24, // 1 day
-      domain: "netlify.app"
+      // domain: "netlify.app" // REMOVE this line as it's causing the issue
     },
   })
 );
+app.set('trust proxy', 1); // Necessary when using HTTPS behind a proxy
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
