@@ -53,7 +53,7 @@ app.use(
     cookie: {
       // secure: true,
       // httpOnly: false,
-      // sameSite: "none",
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
       domain: "https://netlify.app"
     },
