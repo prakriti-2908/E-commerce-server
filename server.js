@@ -55,7 +55,7 @@ app.use(
       // httpOnly: false,
       // sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
-      domain: "https://main--ethnic-2931-hub.netlify.app"
+      domain: "https://netlify.app"
     },
   })
 );
