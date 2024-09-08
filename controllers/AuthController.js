@@ -104,7 +104,7 @@ const loginController = async (req, res) => {
         sameSite: "lax", // Adjust for local testing
         secure: false, // Set to false for local testing
         path: "/",
-        httpOnly: true, // Make the cookie HTTP only
+        httpOnly: false, // Make the cookie HTTP only
       });
 
       return res.send({
