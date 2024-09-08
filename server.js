@@ -1,12 +1,12 @@
 const express = require("express");
 const clc = require("cli-color");
 const cors = require("cors");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const session = require("express-session");
 const mongodbSession = require("connect-mongodb-session")(session);
-const path = require('path');
+const path = require("path");
 
 require("dotenv").config();
 
@@ -23,7 +23,7 @@ const store = new mongodbSession({
   uri: MONGO_URI,
   collection: "sessions",
   databaseName: "Ecommerce",
-  mongooseConnection: mongoose.connection
+  mongooseConnection: mongoose.connection,
 });
 
 const app = express();
@@ -46,15 +46,15 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,
-      httpOnly:true,
-      sameSite:"none",
+      secure: false,
+      httpOnly: false,
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
     },
   })
 );
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // routes middlewares
 app.use("/api/version/auth", authRouter);
