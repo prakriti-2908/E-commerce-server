@@ -100,7 +100,7 @@ const loginController = async (req, res) => {
 
       res.cookie("JWT", jwtToken, {
         maxAge: 15 * 24 * 60 * 60 * 1000,
-        sameSite: "None", 
+        sameSite: "none", 
         secure: true, 
         path: "/",
         httpOnly: true, 
