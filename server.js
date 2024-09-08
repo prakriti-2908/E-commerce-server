@@ -29,11 +29,11 @@ const store = new mongodbSession({
 const app = express();
 
 // middleware
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://main--ethnic-2931-hub.netlify.app');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://main--ethnic-2931-hub.netlify.app');
+//   res.header('Access-Control-Allow-Credentials', 'true');
+//   next();
+// });
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(
