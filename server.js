@@ -34,6 +34,7 @@ const app = express();
 //   res.header('Access-Control-Allow-Credentials', 'true');
 //   next();
 // });
+app.set('trust proxy', 1); 
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(
@@ -55,7 +56,7 @@ app.use(
       // httpOnly: false,
       // sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
-      domain: "https://www.netlify.com"
+      domain: "netlify.com"
     },
   })
 );
